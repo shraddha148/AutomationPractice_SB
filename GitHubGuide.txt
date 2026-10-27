@@ -1,0 +1,467 @@
+########################## Create GitHub Account ##################
+
+1.  Open GitHub.com
+2. click on signup button.
+3. Enter your email.
+4. Enter password, it should be unique password
+5. Enter unique username: gitUserTest
+6. click on both checkboxs
+7. click on create account button.
+8. User will receive verification code, enter and verify it.
+9. Sometime it shows puzzle to verify the account , please solve the puzzle and create account.
+
+##################### Create GitHub Repository #####################
+1. Click on create repository button.
+2. Provide repository name : AutomationPractice
+3. Provide repository description : AutomationPractice
+4. Select visibility, keep default as Public.
+5. Select readme file option. (Make it ON)
+6. Select .gitignore file select as AL
+7.Click on Create repository button
+
+##################### Install GitHub Client #####################
+1. download git client from given link
+ path : https://github.com/git-for-windows/git/releases/download/v2.55.0.windows.3/Git-2.55.0.3-64-bit.exe
+
+2. Once download the successful.
+3. Initiate the installation and continue click on next button and complete installation process.
+4. Create folder with name as GitCode in C driver.
+5. Open git terminal in GitCode folder.
+   -> open gitCode Folder.
+   - Right Click  -> show more option -> Open git bash here.
+   - It will open terminal
+
+6. git help : it will show all available git commands.
+
+##################### Clone Repository on local system #####################
+1. Go to git server.
+2. Open repository AutomationPractice 
+3. Click on Code button -> Copy repository HTTP URL
+4. Navigate back to git terminal 
+5. Run command to clone repository
+   -> git clone https://github.com/phingankar04/AutomationPractice.git
+
+6. Repository will be clone successfully, it will create a folder with Repository Name.
+  e.g. AutomationPractice
+
+########## Add file and Push to Repo #################
+1. After cloning the repository.
+2. Open your repo folder. C:\GitCode\AutomationPractice
+3. Create a text file with name : DemoFile.txt insider AutomationPractice Folder.
+4. Add some random content to the file and save it.
+5. Open git terminal in AutomationPractice folder.
+   right click insider folder -> show more option -> open git bash here.
+6. It will open terminal in AutomationPractice.
+7. Run command to check status
+   -> git status : new file will show in red color.
+
+8. Initiate git add operation
+  -> git add filename1 filename2
+
+9. check status again.
+  -> git status : file will show in green color.
+
+10. initiate git commit operation
+  -> git commit -m "added new file"
+ -> it will show below messages.
+   git config --global user.name "Phingankar04"
+   git config --global user.email "hingankarp36@gmail.com"
+
+-> Run above command one by one in the terminal
+   
+11. run command command again.
+     -> git commit -m "added new file"
+
+
+12. git push :  it will open one popup for authentication
+    -> Open in browser
+   -> Provide git hub credentials
+   -> click on Authorize git ecosystem.
+   -> push will be successful.
+
+13. check your file is uploaded to the server successfully.
+
+
+################### Create Common Repo and Provide Access #######################
+
+1. Created Repository with name : GTM_PlaywrightTS_BATCH17
+2. Provide access to all students and sent invitation
+   - go to repository
+   - click on settings button.
+   - click on collaborators
+   - Add People
+   - Enter email of any collaborator that you want to provide
+3. Collaborator will receive invitation and they have to accept it from email.
+4. Once the invitation is accepted, shared repository will be visible in their account.
+
+
+############# Clone common repo and create your folder #################
+1. Go to C:\GitCode folder and open git terminal their.
+2. Get repository URL from GitHub server 
+    URL : https://github.com/sqatools/GTM_PlaywrightTS_BATCH17.git
+
+3. run command to clone repository
+   -> git clone https://github.com/sqatools/GTM_PlaywrightTS_BATCH17.git
+
+4. Once the close it successful then it will auto create a folder with name
+   Name : GTM_PlaywrightTS_BATCH17
+
+5. Go to repository folder and Create a folder with name e.g. DeepeshY
+   - Make sure there is no space in folder name.
+   - Create a file inside your dedicated folder with name : DemoFile.txt
+   - Add some content to the file and save
+
+6. Follows below steps to push code.
+   - git status : it will show folder in red color
+   - git add foldername
+   - git status : it will show folder in green color.
+   - git commit -m "added new file"
+   - git push
+   - push may be rejected, follow below steps to resolve it.
+       -  git pull : it will open a editor to merge changes.
+       -  close terminal with :wq command.
+       -  git push : try to push changes.
+       -> repeat these steps until push is not successful. 
+
+
+################ Multi Branching Fundamentals ###############
+  
+1. Create a branch from git hub server.
+   - Go to GitHub server
+   - Open common Repository : GTM_PlaywrightTS_BATCH17
+   - click on branch option : default name is main branch.
+   - click on view all branches -> Only main branch will be visible initially.
+   - click on New Branch button.
+   - Provide Branch Name : e.g. DeepeshY_Branch
+   - click on Create New Branch.
+   - branch creation is successful, it will be visible in branch list.
+
+2. Pull all branches on local repo folder.
+   - Open git terminal in repo folder : GTM_PlaywrightTS_BATCH17
+   - pull all changes from server to local repo
+   - git pull : it will pull all changes/branches from server to local system.
+
+3. switch to new Branch.
+   - git branch : it will show main as active branch green color.
+   - git checkout BranchName
+   - e.g. git checkout DeepeshY_Branch.
+     branch 'DeepeshY_Branch' set up to track 'origin/DeepeshY_Branch'.
+     Switched to a new branch 'DeepeshY_Branch'
+
+   - git branch : New branch will be a active branch show in green color(DeepeshY_Branch)
+
+4. Push code to new branch.
+   -> Create a file inside your dedicated folder. 
+   -> filename :Deepesh_Feature.txt
+   -> Add come content to the filename and save it.
+
+5.  Push code to repo.
+    -> git status:  it will show files in red color.
+    -> git add <filepath>
+    -> git status : it will show file in green color.
+    -> git commit -m "added new file"
+    -> git push : It will push to repository.
+
+6. Create pull request from server. 
+    -> Go to server open Repository on server . GTM_PlaywrightTS_BATCH17
+    -> User will see Compare & Pull request button , if changes are psuhed to feature branch.
+    -> click on compare and pull request button -> Provide required information.
+
+      -> title: it should be relevant to the what code changes you done.
+      -> description : Provide detailed information about your code, 
+                so that reviewer can easily understand purpose of code changes.
+      -> reviewer : Add your team members as reviewer to review the code provide feedback.
+      -> Assignee : Add your name as assignee, that you are going look into the code.
+      -> click on create pull request button.
+
+
+7. Review code.
+  
+       
+################################### Resolve Merge Conflict ######################################
+
+Merge Conflict Scenarios.
+1. In main branch filename: greeting.txt
+   content: good morning
+
+2. Person1 : branch
+   filename: greeting.txt
+   content: Person1: good morning, How are you?
+
+   -> update the file and push to the server.
+
+3. Person2 : branch
+   filename : greeting.txt
+   content : Person2: good Evening, Hope you are doing good.
+   -> update the file and push to the server.
+
+4. Person1 create a pull and merge change to main branch.
+   in Main branch 
+   filename : greeting.txt
+   previous content : good morning.
+   new content : Person1: good morning, How are you?
+
+
+5. Person2 create pull request and try to merge the change to the main.
+   -> new content :  Person2: good Evening, Hope you are doing good
+
+6. Resolve merge conflict merge push the changes.
+
+################## Steps to reproduce merge conflict scenario ################
+Pre-requisite:
+1. push all current changes to your branch
+   (git status, git add, git commit, git push)
+   -> revert your local changes.
+   -> git checkout filename (Revert specific file)
+   -> git checkout . (Revert all changes)
+
+2. switch to main branch or any other branch
+   -> git checkout main
+   -> git checkout branchName
+
+3. git pull : Update all code changes.
+   -> git pull
+
+4. current active Branch should be main.
+   -> git branch
+   -> main branch should show in green color.
+
+
+
+##############
+Steps to reproduce.
+
+1. Create a branch for stage environment with name :
+   BranchName : DyStageBranch
+   -> git checkout -b DyStageBranch 
+   -> It will create a branch locally and switch to branch
+
+2. Create a file with name 'Dygreeting.txt' in your dedicated folder 
+   locally in repository folder.
+   filename: Dygreeting.txt
+   file content : good Morning
+
+   -> push this file to the server
+   -> git status (file in red color)
+   -> git add Filename/Path (It will initiate git add operation)
+   -> git status (file will show in green color)
+   -> git commit -m "adding new file to repo"
+   -> git push
+
+   # below command will push branch to the server.
+   -> git push --set-upstream origin DyStageBranch
+
+
+3. Create two Branches from stage branch (DyStageBranch) on server
+   -> Branch1 Name : Dy_P1_branch
+   -> Branch2 Name : Dy_P2_branch
+   -> Source Branch should be DyStageBranch.
+   
+   # Steps to create branch on server.
+   -> Login to server.
+   -> Open GTM_PlaywrightTS_BATCH17
+   -> click on branches dropdown -> click on view all branches.
+   -> click on New Branch button -> It will open popup to Create a branch
+   -> Provide branch name : Dy_P1_branch
+   -> Source Branch should be : DyStageBranch
+   -> click on create branch button 
+   -> Repeat same steps to create another branch as well (Dy_P1_branch)
+   
+
+4. Go Back git terminal and pull update from server
+   -> make sure that you are on DyStageBranch branch
+   -> git branch
+   -> DyStageBranch should show in green color.
+   -> git pull
+   -> It will pull all meta data from server and new created branches as well.
+
+5. Switch to Dy_P1_branch and modify the greeting file and push it.
+   -> git checkout Dy_P1_branch.
+   -> Update file DyGreeting.txt
+   -> old content: good morning
+   -> new content : Person1: good morning, How are you?
+   -> save the file
+   -> push file to server.
+      -> git status
+      -> git add <filepath>
+      -> git commit -m "added new file"
+      -> git push
+      -> it will push changes to Dy_P1_branch
+
+
+6. Switch to Dy_P2_branch and modify the greeting file and push it.
+   -> git checkout Dy_P2_branch.
+   -> Update file DyGreeting.txt
+   -> old content: good morning
+   -> new content : Person2: good morning, Hope you are doing good.
+   -> save the file
+   -> push file to server.
+      -> git status
+      -> git add <filepath>
+      -> git commit -m "added new file"
+      -> git push
+      -> it will push changes to Dy_P2_branch
+
+
+7. Create a pull request from Dy_P1_branch and merge to DyStageBranch
+   -> Go to GitHub server.
+   -> Click on Compare & pull request button for Dy_P1_branch.
+   -> Create pull request to merge in branch (Provide all required details)
+      Dy_P1_branch -> DyStageBranch
+   -> Merge the changes.
+
+
+8. Create a pull request from Dy_P2_branch and merge to DyStageBranch
+   -> Go to GitHub server.
+   -> Click on Compare & pull request button for Dy_P2_branch.
+   -> Create pull request to merge in branch (Provide all required details)
+      Dy_P2_branch -> DyStageBranch
+   -> Try to merge the changes.  
+   -> It will create merge conflict.
+
+
+9. Resolve conflict issue, manually on Dy_P2_branch.
+   -> go to git terminal.
+   -> make sure you are one Dy_P2_branch.
+   -> pull code from stage branch
+      -> git pull origin DyStageBranch
+      -> It will pull code from DyStageBranch to Dy_P2_branch
+   -> it will show conflict on terminal.
+   
+   $ git pull origin DyStageBranch
+   From https://github.com/sqatools/GTM_PlaywrightTS_BATCH17
+   * branch            DyStageBranch -> FETCH_HEAD
+   Auto-merging DeepeshY/Dygreeting.txt
+   CONFLICT (content): Merge conflict in DeepeshY/Dygreeting.txt
+   Automatic merge failed; fix conflicts and then commit the result.
+
+
+  -> Open Dygreeting.txt file, it will show all conflict changes.
+     <<<<<<< HEAD : # change belong to current branch :  Dy_P2_branch
+
+     Person2: good morning, Hope you are doing good.
+      =======
+    # change belongs to target branch : DyStageBranch
+    Person1 : good morning, How are you?
+     >>>>>>> 806d67a430319d00981a2d01ba692fef02e3f87e
+
+ -> Update Dygreeting.txt with below content and remove extra code.
+    Updated content : Person1, Person2: good morning, How are you?, Hope you are doing good.
+
+
+ -> push changes to server.
+   -> git status
+   -> git add <filepath>
+   -> git commit -m "resolve merge conflict"
+   -> git push
+
+  -> Go back to git server
+  -> open your pull request, where it was showing conflict, 
+     now it will not show any conflict.
+
+
+  -> merge changes to DyStageBranch branch.
+  -> Changes are merged successful and conflict has been resolved.
+
+
+########################## Other Git Commands #########################
+# Remove unwanted file
+-> git clean -df
+-> it will delete all unwanted files or untracked file.
+
+-> git clean -df <filename/Path>
+-> It will remove specific file from local
+
+############## command to check diff of files #########
+-> git diff filename/path
+-> it will show removed or added content in the console.
+
+
+########## Revert the changes from files. (make sure file is already track by Git.)
+-> create a file, add some content and push to the server.
+-> modify same again locally, now we want o revert the changes.
+-> git checkout filename/path
+-> it will revert all changes done in specific file
+
+######## Add / Restore files  ###############
+-> add file to local repo
+-> add file to git using below command
+-> git add <filename>
+-> git status : it will show file in green color
+# restore file
+-> git restore --staged DeepeshY/DemoFile.txt
+-> git status : file again will show in red color.
+
+######## Revert last commit  ###############
+-> create a new file initiate commit
+   -> git status
+   -> git add filepath
+   -> git commit -m "added file"
+   -> git status : it will not show file in the terminal.
+
+-> git reset --soft Head~1
+
+-> git status : It will show file in green color
+
+#############Reset everything, what local changes we have done ################
+-> git reset --hard
+
+
+########### Revert specific commit from server ##################
+
+-> do this complete process on stage branch.
+-> git checkout DyStageBranch.
+-> Create a file with name RevertPractice.txt
+   -> add a content as : A
+   -> add save the file.
+   -> push file to server.
+   -> git add DeepeshY/RevertPractice.txt; git commit -m "commit -A with step1"; git push 
+
+-> Update the file and add B is existing content in the file.
+   new content:
+   A
+   B
+   -> push changes again to the server.
+   -> git add DeepeshY/RevertPractice.txt ; git commit -m "commit -B with step2"; git push
+
+-> Repeat same process for C, D and E.
+
+-> go to server -> open repository ->  open your folder -> open file
+   -> click on history button
+   -> it will show list of all commits against one specific file
+   -> copy commit id of any specific change that you want to revert.
+   
+# Perform revert operation using below command
+ -> git revert <commit id>
+ -> It will show the merge conflict in the file
+ -> we have to revert the changes and push file again to the server.
+ 
+
+   
+   
+
+
+ 
+   
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+   
+   
+   
+
+
+
+ 
