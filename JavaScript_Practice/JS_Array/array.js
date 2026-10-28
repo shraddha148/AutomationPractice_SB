@@ -67,7 +67,7 @@ console.log("---------------------")
 
 const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-// reverse the array
+// reverse method
 arr1.reverse();
 console.log("Reversed array : ", arr1);
 //arr1 = [9, 8, 7, 6, 5, 4, 3, 2, 1]
@@ -82,6 +82,18 @@ console.log("Sorted array in ascending order : ", arr1);
 arr1.sort((a, b) => b - a);
 console.log("Sorted array in descending order : ", arr1);
 //arr1 = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+//concat method
+//combines arr0 and arr1 into a new array
+const arr0 = [10, 11, 12, 13, 14];
+const combinedArr = arr0.concat(arr1);
+console.log("Combined array : ", combinedArr);
+//combinedArr = [10, 11, 12, 13, 14, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+//join method
+//converts an array into a string, with elements separated by a specified separator
+const arrString = arr1.join(", ");
+console.log("Array as string : ", arrString); // "9, 8, 7, 6, 5, 4, 3, 2, 1"
 
 //splice method
 // splice(start, deleteCount, item1, item2, ...) - removes deleteCount elements from index start and adds item1, item2, ...
@@ -116,7 +128,7 @@ const squares = arr5.map(num => num * num);
 console.log("Squares : ", squares); // [1, 4, 9, 16, 25, 36, 49, 64, 81]
 
 //reduce method ??
-// reduce(callback, initialValue) - applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value
+// reduce(callback, initialValue) - Calculates a combined result
 const arr6 = [1, 2, 3, 4, 5];
 const sum = arr6.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 console.log("Sum : ", sum); // 15
@@ -129,6 +141,8 @@ console.log("Sum : ", sum); // 15
 //2. write a program to get factorial of all numbers in an array
 //3. write a program to get sum of all numbers in an array
 //4. write a program to reverse an array using for loop
+//5. write a program to get 2 numbers whose sum is 10
+//6. write a program to get all prime numbers from an array with function
 console.log("-------------------Program 1-------------------");
 var a1 = [4, 6, 7, 8, 2, 4, 3, 11, 5, 9];
 
@@ -170,3 +184,66 @@ for (var i = 0; i< a1.length; i++) {
     }
 }
 console.log("Sorted array : ", a1); // [2, 3, 4, 4, 5, 6, 7, 8, 9, 11]
+
+
+console.log("-------------------Program 5-------------------");
+//i = 0, j = 1
+for (var i = 0; i < a1.length; i++) {
+    for (j=i+1; j < a1.length; j++) {
+        if (a1[i] + a1[j] === 10) {
+            console.log("Sum is 10: ", a1[i], a1[j]);
+        }
+    }
+}
+
+console.log("-------------------Program 6-------------------");
+
+var a1 = [4, 6, 7, 8, 2, 4, 3, 11, 5, 9];
+function isPrime(num) {
+    if (num <= 1) return false;
+    for (var i = 2; i < num; i++) {
+        if (num % i === 0) {
+            var prime = false;
+            break
+        }
+    }
+    if (prime === false) {
+        console.log(num, "is not a prime number");
+}
+    return prime !== false;
+}
+
+isPrime(a1);
+var primeNumbers = a1.filter(isPrime);
+console.log("Prime numbers in the array: ", primeNumbers);
+
+
+//7. write a program to remove duplicate numbers from an array
+//8. writw a program to generate output = [[4, 'even'], [6, 'even'], [7, 'odd'], [8, 'even'], [2, 'even'], [4, 'even'], [3, 'odd'], [11, 'odd'], [5, 'odd'], [9, 'odd']]
+//9. write a program to generate fibonacci series of n numbers
+
+console.log("-------------------Program 7-------------------");
+var a1 = [4, 6, 7, 8, 2, 4, 3, 11, 5, 9];
+var uniqueNumbers = [...new Set(a1)];
+console.log("Unique numbers in the array: ", uniqueNumbers); // [4, 6, 7, 8, 2, 3, 11, 5, 9]
+
+console.log("-------------------Program 8-------------------");
+
+for (var v in a1) {
+    if (a1[v] % 2 === 0) {
+        console.log([a1[v], 'even']);
+    } else {
+        console.log([a1[v], 'odd']);
+    }
+}
+
+console.log("-------------------Program 9-------------------");
+function fibonacciSeries(n) {
+  let fib = [0, 1];
+  for (let i = 2; i < n; i++) {
+    fib[i] = fib[i - 1] + fib[i - 2];
+  }
+  return fib.slice(0, n);
+}
+
+console.log(fibonacciSeries(10));
