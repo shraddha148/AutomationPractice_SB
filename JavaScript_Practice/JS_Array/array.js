@@ -121,6 +121,13 @@ const arr4 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const evenNumbers = arr4.filter(num => num % 2 === 0);
 console.log("Even numbers : ", evenNumbers); // [2, 4, 6, 8]
 
+//forEach method
+//Executes a function for each element
+arr4cube = [];
+arr4.forEach(num => arr4cube.push(num**3)); //using push to add elements to arr4cube; forEach does not return a new array
+console.log("Original Array : ", arr4); // [1, 2, 3, 4, 5, 6, 7, 8, 9] (original array remains unchanged)
+console.log("Cube of each element using forEach : ", arr4cube); // [1, 8, 27, 64, 125, 216, 343, 512, 729]
+
 //map method
 // Map : method creates an array by applying a function to every single value of array.
 const arr5 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -134,7 +141,11 @@ const sum = arr6.reduce((accumulator, currentValue) => accumulator + currentValu
 console.log("Sum : ", sum); // 15
 
 
-
+/*the difference between forEach(), map(), and filter():
+- forEach() — perform an action for every element.
+- map() — transform every element and return a new array.
+- filter() — return only elements that satisfy a condition.
+*/
 
 
 //1. write a program to get square of all even numbers from array
@@ -143,6 +154,7 @@ console.log("Sum : ", sum); // 15
 //4. write a program to reverse an array using for loop
 //5. write a program to get 2 numbers whose sum is 10
 //6. write a program to get all prime numbers from an array with function
+
 console.log("-------------------Program 1-------------------");
 var a1 = [4, 6, 7, 8, 2, 4, 3, 11, 5, 9];
 
@@ -153,6 +165,7 @@ for (var i =0; i < a1.length; i++) {
     }
 }  
 console.log("Square of all even numbers: ", evenSquares); // [16, 36, 64, 4, 16]
+
 
 console.log("-------------------Program 2-------------------");
 
@@ -165,6 +178,7 @@ var factorials = a1.map(num => {
 });
 
 console.log("Factorials of all numbers: ", factorials);
+
 
 console.log("-------------------Program 3-------------------");
 
@@ -187,6 +201,7 @@ console.log("Sorted array : ", a1); // [2, 3, 4, 4, 5, 6, 7, 8, 9, 11]
 
 
 console.log("-------------------Program 5-------------------");
+
 //i = 0, j = 1
 for (var i = 0; i < a1.length; i++) {
     for (j=i+1; j < a1.length; j++) {
@@ -195,6 +210,7 @@ for (var i = 0; i < a1.length; i++) {
         }
     }
 }
+
 
 console.log("-------------------Program 6-------------------");
 
@@ -208,24 +224,29 @@ function isPrime(num) {
         }
     }
     if (prime === false) {
-        console.log(num, "is not a prime number");
+        console.log(num, "is not a prime number"); // 4 is not a prime number
 }
     return prime !== false;
 }
 
 isPrime(a1);
 var primeNumbers = a1.filter(isPrime);
-console.log("Prime numbers in the array: ", primeNumbers);
+console.log("Prime numbers in the array: ", primeNumbers); // [7, 3, 11, 5]
 
 
 //7. write a program to remove duplicate numbers from an array
 //8. writw a program to generate output = [[4, 'even'], [6, 'even'], [7, 'odd'], [8, 'even'], [2, 'even'], [4, 'even'], [3, 'odd'], [11, 'odd'], [5, 'odd'], [9, 'odd']]
 //9. write a program to generate fibonacci series of n numbers
+//10. write a program to find second largest number in an array
+
 
 console.log("-------------------Program 7-------------------");
+
 var a1 = [4, 6, 7, 8, 2, 4, 3, 11, 5, 9];
 var uniqueNumbers = [...new Set(a1)];
 console.log("Unique numbers in the array: ", uniqueNumbers); // [4, 6, 7, 8, 2, 3, 11, 5, 9]
+
+//unique elements using filter method
 
 console.log("-------------------Program 8-------------------");
 
@@ -238,6 +259,7 @@ for (var v in a1) {
 }
 
 console.log("-------------------Program 9-------------------");
+
 function fibonacciSeries(n) {
   let fib = [0, 1];
   for (let i = 2; i < n; i++) {
@@ -247,3 +269,20 @@ function fibonacciSeries(n) {
 }
 
 console.log(fibonacciSeries(10));
+
+console.log("-------------------Program 10-------------------");
+
+var a1 = [4, 6, 7, 8, 2, 4, 3, 11, 5, 9];
+var maxValue = 0;
+var secMaxValue = 0;
+
+for (var v of a1){
+    if (a1[v] > maxValue) {
+        secMaxValue = maxValue;
+        maxValue = a1[v];
+    } else if (a1[v] > secMaxValue) {
+        secMaxValue = a1[v];
+    }
+}
+console.log("Largest number in the array: ", maxValue); // 11
+console.log("Second largest number in the array: ", secMaxValue); // 9
