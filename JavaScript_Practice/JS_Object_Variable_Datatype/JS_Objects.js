@@ -14,31 +14,31 @@ var UserDetails = {
 };
 
 // 1. Get specific data using key in square brackets
-console.log("1. User Name using Square Bracket Notation:", UserDetails['name']);
+console.log("1. User Name using Square Bracket Notation:", UserDetails['name']); //
 
 // 2. Get specific data using dot notation
-console.log("2. User Phone using Dot Notation:", UserDetails.phone);
+console.log("2. User Phone using Dot Notation:", UserDetails.name); // Rahul
 
-// 3. Add a new key-value pair to the object
+// Add a new key-value pair to the object
 UserDetails.city = "Pune";
-console.log("3. User Details After Adding City:", UserDetails);
+console.log("3. User Details After Adding City:", UserDetails); //{name: 'Rahul', email: 'rahul@gmail.com', phone: 789787987778, address: 'Pune, VimanNagar', city: 'Pune'}
 
-// 4. Delete an entry from the object
+// Delete an entry from the object
 delete UserDetails.email;
-console.log("4. User Details After Deleting Email:", UserDetails);
+console.log("4. User Details After Deleting Email:", UserDetails); //{name: 'Rahul', phone: 789787987778, address: 'Pune, VimanNagar', city: 'Pune'}
 
-// 5. Update existing data
+// Update existing data
 UserDetails.city = "Mumbai";
-console.log("5. User Details After Updating City:", UserDetails);
+console.log("5. User Details After Updating City:", UserDetails); //{name: 'Rahul', phone: 789787987778, address: 'Pune, VimanNagar', city: 'Mumbai'}
 
-// 6. Access objects inside an array
+// Access objects inside an array
 var multipleUser = [
     { name: 'rohit', age: 25, email: 'rohit@gmail.com' },
     { name: 'raghav', age: 35, email: 'raghav@gmail.com' }
 ];
 
-console.log("6. First User Details:", multipleUser[0]);
-console.log("7. Age of Second User:", multipleUser[1].age);
+console.log("6. First User Details:", multipleUser[0]); //{name: 'rohit', age: 25, email: 'rohit@gmail.com'}
+console.log("7. Age of Second User:", multipleUser[1].age); //35
 
 // 7. Access nested object properties
 const sudents = {
@@ -67,20 +67,20 @@ const studentsData = {
 };
 
 // 1. Get an array of all keys
-console.log("9. Object Keys:", Object.keys(studentsData));
+console.log("9. Object Keys:", Object.keys(studentsData)); // ['name', 'subject', 'address']
 
 // 2. Get an array of all values
-console.log("10. Object Values:", Object.values(studentsData));
+console.log("10. Object Values:", Object.values(studentsData)); // ['Mohit', {math: 50, english: 66, physics: 56, chemistry: 78}, 'Mumbai, MH']
 
 // 3. Get an array of all key-value pairs
-console.log("11. Object Entries (Key-Value Pairs):", Object.entries(studentsData));
+console.log("11. Object Entries (Key-Value Pairs):", Object.entries(studentsData)); // [['name', 'Mohit'], ['subject', {math: 50, english: 66, physics: 56, chemistry: 78}], ['address', 'Mumbai, MH']]
 
-// 4. Assign method: Copy data from one object to another object
+// 4. Assign method: Copy data from one object to another object > obj1 + obj2
 const obj1 = { a: 123, b: 345 };
 const obj2 = { p: 777, q: 999 };
 const result = Object.assign(obj1, obj2);
 
-console.log("12. Merged Object Using Object.assign():", result);
+console.log("12. Merged Object Using Object.assign():", result); // {a: 123, b: 345, p: 777, q: 999}
 
 console.log("\n############## Object Freeze Method #############");
 
@@ -95,7 +95,8 @@ Object.freeze(BankAccount);
 
 // BankAccount.balance = 100000;
 
-console.log("13. Bank Account After Object.freeze():", BankAccount);
+console.log("13. Bank Account After Object.freeze():", BankAccount); // {accountNo: 7897897987, balance: 800000, type: 'saving'}
+console.log("   Attempt to Delete Balance:", delete BankAccount.balance); // false
 
 console.log("\n############## Object Seal Method #############");
 
@@ -116,6 +117,10 @@ Object.seal(user);
 user.age = 30;
 
 console.log("14. User Details After Object.seal() and Updating Age:", user);
+
+//add/update/remove a property (will not work)
+
+//TypeError: Cannot delete property 'email' of #<Object>
 
 console.log("\n############## Object.hasOwn() Method #############");
 
@@ -183,3 +188,215 @@ const { name, age, email } = User4;
 console.log("26. User Name Extracted Using Destructuring:", name);
 console.log("27. User Age Extracted Using Destructuring:", age);
 console.log("28. User Email Extracted Using Destructuring:", email);
+
+
+console.log("\n################# Nested Object Destructuring ####################");
+
+const User5 = {
+    name: "Rohit",
+    age: 30,
+    address: {
+        city: "Pune",
+        state: "MH",
+        country: "India"
+    }
+};
+
+const { name: userName, age: userAge, address: { city, state, country } } = User5;
+
+console.log("29. User Name Extracted Using Nested Destructuring:", userName); // Rohit
+console.log("30. User Country Extracted Using Nested Destructuring:", country); // India
+
+
+
+console.log("\n################# Object Spread Operator ####################");
+
+const obj7 = { a: 100, b: 200 };
+const obj8 = { ...obj7, c: 300 };
+
+console.log("31. Original Object (obj7):", obj7); // { a: 100, b: 200 }
+console.log("32. New Object (obj8) Using Spread Operator:", obj8); // { a: 100, b: 200, c: 300 }
+
+
+console.log("\n################# Object Rest Operator ####################");
+
+const { a, ...rest } = obj8;
+
+console.log("33. Extracted Property 'a':", a); // 100
+console.log("34. Remaining Properties Using Rest Operator:", rest); // { b: 200, c: 300 }
+
+
+
+console.log("\n################# Object.is() Method ####################");
+
+const obj9 = { x: 10, y: 20 };
+const obj10 = { x: 10, y: 20 };
+
+console.log("35. Are obj9 and obj10 the Same Object?", Object.is(obj9, obj10)); // false
+console.log("36. Are obj9 and obj9 the Same Object?", Object.is(obj9, obj9)); // true   
+
+
+
+console.log("------------------------- OBJECT PROGRAMS -------------------------");
+
+//1. Count the number of properties in an object
+const obj11 = { a: 1, b: 2, c: 3, d: 4 };
+const propertyCount = Object.keys(obj11).length;
+
+console.log("Prog1. Number of Properties in obj11:", propertyCount); // 4
+
+//2. Write a program to calculate the bill as per the fruit purchased.
+
+var FruitPrice = {Apple: 40, Mango: 50, Lichi: 70, watermelon: 44}
+var Fruit_Purchased = {Apple: 10, Mango:20, Lichi: 15, watermelon: 5}
+var total_billl = 0
+
+for(var k in FruitPrice) {
+    var fruit_name = k
+    var fruitprc = FruitPrice[k]
+    var fruitqua = Fruit_Purchased[k]
+    var fruitbill = fruitprc * fruitqua
+    total_billl = total_billl + fruitbill
+    console.log(fruit_name, fruitqua, fruitprc, fruitbill)
+}
+
+console.log("Prog2. Total bill :", total_billl) // 10*40 + 20*50 + 15*70 + 5*44 = 400 + 1000 + 1050 + 220 = 2670
+
+//3. Grouping of employee by departments.
+
+const employees = {
+    emp1: { name: "John", department: "IT" },
+    emp2: { name: "Alice", department: "HR" },
+    emp3: { name: "David", department: "IT" },
+    emp4: { name: "Emma", department: "Finance" },
+    emp5: { name: "Theresa", department: "Finance" },
+    emp6: { name: "Timcy", department: "Finance" },
+};
+
+const DepartmentObject = {}
+
+for(var k in employees) {
+    var depart = employees[k].department // IT
+    if(Object.hasOwn(DepartmentObject, depart)) {
+        DepartmentObject[depart].push(employees[k].name)
+    } else {
+        DepartmentObject[depart] = [employees[k].name]
+    }
+
+}
+
+console.log("Prog3. Grouped Employees by Department:", DepartmentObject)
+// { IT: [ 'John', 'David' ], HR: [ 'Alice' ], Finance: [ 'Emma' ] }
+
+//4. // write a proram to calculate the bill as per the fruit purchased.
+
+var FruitPrice = {Apple: 40, Mango: 50, Lichi: 70, watermelon: 44}
+var Fruit_Purchased = {Apple: 10, Mango:20, Lichi: 15, watermelon: 5}
+var total_billl = 0
+
+for(var k in FruitPrice) {
+    var fruit_name = k
+    var fruitprc = FruitPrice[k]
+    var fruitqua = Fruit_Purchased[k]
+    var fruitbill = fruitprc * fruitqua
+    total_billl = total_billl + fruitbill
+    console.log(fruit_name, fruitqua, fruitprc, fruitbill)
+}
+
+console.log("Total bill :", total_billl)
+
+console.log("#######################################")
+//12 .  Grouping of employee by departments.
+
+const ITemployees = {
+    emp1: { name: "John", department: "IT" },
+    emp2: { name: "Alice", department: "HR" },
+    emp3: { name: "David", department: "IT" },
+    emp4: { name: "Emma", department: "Finance" },
+    emp5: { name: "Theresa", department: "Finance" },
+    emp6: { name: "Timcy", department: "Finance" },
+};
+
+const DepartmentsObject = {}
+
+for(var k in ITemployees) {
+    var depart = ITemployees[k].department // IT
+    if(Object.hasOwn(DepartmentsObject, depart)) {
+        DepartmentsObject[depart].push(ITemployees[k].name)
+    } else {
+        DepartmentsObject[depart] = [ITemployees[k].name]
+    }
+
+}
+
+console.log(DepartmentsObject)
+// { IT: [ 'John', 'David' ], HR: [ 'Alice' ], Finance: [ 'Emma' ] }
+
+//4. // write a proram to calculate the bill as per the fruit purchased. Apply 20% discount if total bill is more than 2000.
+
+var FruitPrice = {Apple: 40, Mango: 50, Lichi: 70, watermelon: 44}
+var Fruit_Purchased = {Apple: 10, Mango:20, Lichi: 15, watermelon: 5}
+var total_bill = 0
+
+for(var k in FruitPrice) {
+    var fruit_name = k
+    var fruitprc = FruitPrice[k]
+    var fruitqua = Fruit_Purchased[k]
+    var fruitbill = fruitprc * fruitqua
+    total_bill = total_bill + fruitbill
+    console.log(fruit_name, fruitqua, fruitprc, fruitbill)
+}
+
+console.log("Total bill :", total_bill) // 10*40 + 20*50 + 15*70 + 5*44 = 400 + 1000 + 1050 + 220 = 2670
+if (total_bill > 2000){
+    total_bill = total_bill - (total_bill * 0.2)
+}console.log("Total bill after discount :", total_bill) // 2670 - (2670 * 0.2) = 2136
+
+console.log("#######################################")
+//12 .  Grouping of employee by departments.
+
+const employees1 = {
+    emp1: { name: "John", department: "IT" },
+    emp2: { name: "Alice", department: "HR" },
+    emp3: { name: "David", department: "IT" },
+    emp4: { name: "Emma", department: "Finance" },
+    emp5: { name: "Theresa", department: "Finance" },
+    emp6: { name: "Timcy", department: "Finance" },
+};
+
+const DepartmentssObject = {}
+
+for(var k in employees1) {
+    var depart = employees1[k].department // IT
+    if(Object.hasOwn(DepartmentssObject, depart)) {
+        DepartmentssObject[depart].push(employees1[k].name)
+    } else {
+        DepartmentssObject[depart] = [employees1[k].name]
+    }
+
+}
+
+console.log(DepartmentssObject)
+// { IT: [ 'John', 'David' ], HR: [ 'Alice' ], Finance: [ 'Emma' ] }
+
+//4. Convert an array to an object where even numbers are keys and their sqaure are values and odd numbers are keys and their cube are values.
+    
+const arr = [5, 6, 8, 12, 13, 15];
+const obj12 = {};
+
+for (var v in arr) {
+    if (arr[v] % 2 == 0){
+        value = arr[v] ** 2;
+    } else {
+        value = arr[v] ** 3;
+    }
+}
+obj12[arr[v]] = value;
+
+console.log("Prog4. Array to Object Conversion (Even: Square, Odd: Cube):", obj12); // { '5': 125, '6': 36, '8': 64, '12': 144, '13': 2197, '15': 3375 }
+
+//5. Convert an object to an array of key-value pairs
+const obj13 = { a: 1, b: 2, c: 3 };
+const arr13 = Object.entries(obj13);
+
+console.log("Prog5. Object to Array of Key-Value Pairs:", arr13); // [['a', 1], ['b', 2], ['c', 3]]
