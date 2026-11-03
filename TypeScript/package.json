@@ -1,0 +1,30 @@
+{
+  "name": "playwrightautomation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.2.0",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "fsevents": "^2.3.2",
+    "playwright": "^1.62.1",
+    "playwright-core": "^1.62.1",
+    "undici-types": "^8.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shraddha148/AutomationPractice_SB.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shraddha148/AutomationPractice_SB/issues"
+  },
+  "homepage": "https://github.com/shraddha148/AutomationPractice_SB#readme"
+}

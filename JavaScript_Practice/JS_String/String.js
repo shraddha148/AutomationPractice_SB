@@ -25,13 +25,13 @@ console.log("###############################")
 
 // Apply loop on string.
 var str1 = "JavaScript Programming"
-for (var a of str1) {
+for (var a of str1) {           //iterate through each character of string
     console.log(a) // J a v a S c r i p t   P r o g r a m m i n g
 }
 
 console.log("###############################")
 
-for(var i in str1) {
+for(var i in str1) {             //iterate through each index of string
     console.log(i, str1[i]); // 0 J 1 a 2 v 3 a 4 S 5 c 6 r 7 i 8 p 9 t 10   11 P 12 r 13 o 14 g 15 r 16 a 17 m 18 m 19 i 20 n 21 g
 }
 

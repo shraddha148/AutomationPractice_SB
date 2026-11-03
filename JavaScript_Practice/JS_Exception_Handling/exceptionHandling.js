@@ -1,6 +1,6 @@
 // Exception handling in Javascript is used to manage runtime errors without stopping the entire program.
 // it helps to write stable and reliable application.
-
+//https://sqatools.in/javascript-exception-handling/
 
 
 function try_catch_block(){
@@ -60,7 +60,7 @@ message : a.toUpperCase is not a function
 Execution completed
 */
 
-
+console.log("--------Handle JSON Error using try catch block-----------");
 function exceptionPracticeSyntaxError() {
     try {
         JSON.parse("{name: true")
@@ -134,3 +134,27 @@ console.log(set1)
 set1.clear()
 console.log(set1) // {}
 console.log("##############################################")
+
+
+//nested try catch block
+Console.log("-------Nested try catch block-----------")
+
+function nestedTryCatch() {
+    try{
+        var b = 10;
+        var a = b/10;
+        console.log(a);
+        try{
+            var c = 100;
+            console.log(c.toUpperCase());
+
+        }catch(error2){
+            console.log("Inner catch");
+            console.log("Inner Exception error :", error2.name)
+            console.log("Inner Exception Message :", error2.message)
+        }
+    }catch (error1){
+        console.log("Outer catch");
+        console.log("Outer Exception error :", error1.name)
+        console.log("Outer Exception Message :", error1.message)
+    }
