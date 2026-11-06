@@ -81,7 +81,7 @@ class BankAccount {
 class SavingsAccount extends BankAccount {
     constructor(balanceAmount: number) {
 // whenever we set up inheritence between 2 classes, 
-// the parent class costructor has to be intinialized in the child class constructor using super() method
+// the parent class costructor has to be intinialized in the child class constructor using super() method **
 
         super(balanceAmount); // Call the parent class constructor
 
@@ -106,3 +106,58 @@ obj1.Deposite(500);
 obj1.CurrentBalance();
 obj1.withdraw(200);
 obj1.CurrentBalance();
+
+console.log("------------ Inheritance Example-----------------");
+
+/* create a company class with these properties - companyname, companyaddress, company revenue
+create a child class employee which will inherit from company class
+Create three methods:
+1. Show employee name
+2. Show employee ID
+3. Show employee salary
+Create an object of the employee class. Provide all the parameters
+ of the parent class as well as the class itself. Then, through the child class object,
+ access all the methods that we specify in the parent and child classes. 
+ */
+
+ class Company {
+     companyName: string;
+     companyAddress: string;
+     companyRevenue: number;
+ 
+     constructor (companyName: string, companyAddress: string, companyRevenue: number){
+         console.log("Company Constructor called");
+         this.companyName = companyName;
+         this.companyAddress = companyAddress;
+         this.companyRevenue = companyRevenue;
+     }
+     showCompanyDetails() {
+         console.log("Company Name:", this.companyName);
+         console.log("Company Address:", this.companyAddress);
+         console.log("Company Revenue:", this.companyRevenue);
+     }
+ 
+  }
+  class Employee extends Company {
+     employeeName: string;
+     employeeID: number;
+     employeeSalary: number;
+ 
+     constructor(employeeName: string, employeeID: number, employeeSalary: number) {
+         super("Rootstock", "San Jose", 1000000); // Call the parent class constructor with company details
+         console.log("Employee Constructor called");
+         this.employeeName = employeeName;
+         this.employeeID = employeeID;
+         this.employeeSalary = employeeSalary;
+     }
+ 
+     showEmployeeDetails() {
+         console.log("Employee Name:", this.employeeName);
+         console.log("Employee ID:", this.employeeID);
+         console.log("Employee Salary:", this.employeeSalary);
+        }
+    }
+    //creating object of child class Employee and showing data
+    const emp = new Employee('John De', 12889, 50000);
+    emp.showCompanyDetails();
+    emp.showEmployeeDetails();
