@@ -218,17 +218,17 @@ SCObj.CalculateInterestAmount(100000, 8, 1)
 
 console.log("----------------- Polymorphism ------------------");
 
-// Polymorphism is basically one particular person doing multiple tasks.
-/* 1. Method overriding: when two classes are connected to each other and both classes have the same method name,
-                        then child class method will override the parent class method. 
+// // Polymorphism:
+// One name, many forms. The same method can behave differently depending on the object or parameters.
 
-// Method overloading is not allowed in typescript
-// 2. Method overloading : when one class has two methods with different names and 
-//                         different parameters, then it is called method overriding. But TypeScript does not support method overriding, 
-//                         as it does not allow providing any duplicate method name in the same class. 
-*/
- 
-// parent class/ base class
+// 1. Method Overriding:
+// When parent and child classes have the same method name and compatible signatures, the child class provides its own
+// implementation of the parent class method.
+
+// 2. Method Overloading:
+// When multiple method signatures have the same method name but different parameter types or numbers of parameters.
+// TypeScript supports method overloading using overload signatures, but only one implementation is allowed.
+
 class BankAccountNew {
     balance : number
     constructor(balanceAmount: number) {
@@ -245,7 +245,7 @@ class BankAccountNew {
         console.log(`Hello ${name}, Welcome to SBI`)
     }
  
-    // duplicate method names are not allowed in TS.
+    // duplicate method names are not allowed in TS**
  
     // addition(n1: number, n2: number) {
     //     console.log("Addition :", n1+n2)
