@@ -7,3 +7,9 @@ node_modules/
 # Playwright generated files
 playwright-report/
 test-results/
+
+# Playwright
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
